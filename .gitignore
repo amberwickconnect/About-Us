@@ -1,1 +1,4 @@
 .claude/
+
+# raw 4K renders, only the optimized copies in assets/ are published
+Image Sequence_*.png

@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Amberwick — Game-ready assets for Unity</title>
-<meta name="description" content="Amberwick makes stylized, game-ready 3D prop packs for Unity: farm, village and rustic props. FBX and GLB, URP and HDRP.">
+<meta name="description" content="Amberwick makes stylized, game-ready 3D prop packs for Unity: farm, village and rustic props. FBX and GLB sources, URP materials with documented HDRP conversion.">
 <meta property="og:title" content="Amberwick — Game-ready assets for Unity">
-<meta property="og:description" content="Stylized 3D prop packs for Unity. FBX and GLB, URP and HDRP, ready from the first import.">
+<meta property="og:description" content="Stylized 3D prop packs for Unity. FBX and GLB sources, URP materials with documented HDRP conversion.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://amberwickconnect.github.io/About-Us/assets/rustic-farm-kit.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -217,6 +217,11 @@
   }
   .product .body { padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 8px; }
   .product .body p { color: var(--muted-dark); font-size: 14px; }
+  .product .specs { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .product .specs span {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 5px 9px; border-radius: 999px; border: 1px solid var(--line-dark); color: var(--muted-dark);
+  }
   .product .meta { margin-top: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); }
   .product-grid { grid-template-columns: 2fr 1fr; }
   .product-wide .thumb { aspect-ratio: 16 / 9; }
@@ -270,6 +275,10 @@
   .faq summary::after { content: "+"; font-family: var(--mono); color: var(--amber); font-size: 18px; transition: transform .2s; }
   .faq details[open] summary::after { transform: rotate(45deg); }
   .faq details p { padding: 0 0 18px; color: var(--muted); font-size: 15px; max-width: 60ch; }
+  .faq code {
+    font-family: var(--mono); font-size: 13px; color: var(--text);
+    background: rgba(21,26,43,0.06); padding: 2px 6px; border-radius: 6px; word-break: break-all;
+  }
   @media (max-width: 880px) { .support-grid { grid-template-columns: 1fr; } }
 
   /* ---------- Footer ---------- */
@@ -317,7 +326,7 @@
       <a href="#assets">Assets</a>
       <a href="#about">About</a>
       <a href="#support">Support</a>
-      <!-- TODO: replace with your Unity Asset Store publisher URL -->
+      <!-- TODO(store-url): replace with the Rustic Farm Kit product page URL on the Asset Store -->
       <a class="btn btn-amber nav-cta" href="https://assetstore.unity.com/" target="_blank" rel="noopener">Asset Store</a>
     </nav>
   </div>
@@ -331,7 +340,7 @@
       <div>
         <div class="eyebrow">Unity Asset Store publisher</div>
         <h1>Game-ready assets,<br>from the <em>first import.</em></h1>
-        <p>Amberwick makes stylized 3D prop packs for Unity. Clean topology, tidy hierarchies, PBR textures and prefabs that just drop into your scene.</p>
+        <p>Amberwick makes stylized 3D prop packs for Unity. Clean topology, tidy hierarchies, PBR textures and prefabs that drop straight into your scene — FBX out of the box, GLB with the free UnityGLTF package.</p>
         <div class="hero-actions">
           <a class="btn btn-amber" href="#assets">
             Browse assets
@@ -350,7 +359,7 @@
         <div class="ring ring-3"></div>
         <svg class="drop" viewBox="0 0 64 64" style="color:#e9a63b"><use href="#drop"/></svg>
         <div class="chip chip-1"><i></i>URP · HDRP</div>
-        <div class="chip chip-2"><i></i>PBR · 1K / 2K</div>
+        <div class="chip chip-2"><i></i>PBR · 512 / 1K / 2K</div>
         <div class="chip chip-3"><i></i>FBX + GLB</div>
       </div>
     </div>
@@ -384,11 +393,11 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 15l5-5 4 4 3-3 6 6"/><circle cx="16" cy="8" r="1.5"/></svg>
           </div>
           <h3>PBR Textures</h3>
-          <p>Each prop has its own texture set, so you only load what you use. 1K for small items, 2K for hero pieces.</p>
+          <p>Each prop has its own texture set, so you only load what you use: 512 for small items, 1K for most props, 2K for the two large tables.</p>
           <ul>
             <li>Base Color, Normal, Occlusion</li>
-            <li>Mask Map for HDRP</li>
             <li>Metallic-Smoothness for URP</li>
+            <li>Mask Map for HDRP</li>
           </ul>
         </div>
 
@@ -397,11 +406,12 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5a1 1 0 0 1 1-1h3M20 7V5a1 1 0 0 0-1-1h-3M4 17v2a1 1 0 0 0 1 1h3M20 17v2a1 1 0 0 1-1 1h-3"/><path d="M8 12h8M12 8v8"/></svg>
           </div>
           <h3>Formats &amp; Pipelines</h3>
-          <p>Every model ships as FBX and GLB. Materials are set up for URP and HDRP, tested in Unity 6.</p>
+          <p>Every model ships as FBX and GLB, with materials set up for URP and documented conversions for HDRP and Built-in.</p>
           <ul>
-            <li>FBX + GLB sources</li>
-            <li>URP and HDRP materials</li>
-            <li>Built-in RP not supported</li>
+            <li>FBX ready on import</li>
+            <li>GLB via the free UnityGLTF package</li>
+            <li>URP materials as shipped</li>
+            <li>Built-in and HDRP via conversion</li>
           </ul>
         </div>
       </div>
@@ -418,7 +428,7 @@
       </div>
 
       <div class="product-grid">
-        <!-- TODO: replace the store link and add a thumbnail image to assets/ -->
+        <!-- TODO(store-url): point this card at the Rustic Farm Kit product page once it is live -->
         <a class="product product-wide" href="https://assetstore.unity.com/" target="_blank" rel="noopener">
           <div class="thumb has-image">
             <span class="badge">First release</span>
@@ -427,8 +437,15 @@
           </div>
           <div class="body">
             <h3>Rustic Farm Kit</h3>
-            <p>Stylized props for farms, villages and cottage interiors: tables, chairs and stools, wooden cups, baskets, crates, barrels and bins, plus a full apiary set with beehives, honey jars, a carafe, a scale and a tap bucket. 20+ props with PBR textures and named sockets for containers and handles.</p>
-            <div class="meta">3D · Farm &amp; Village · FBX + GLB · URP / HDRP</div>
+            <p>Stylized props for farms, villages and cottage interiors: tables, chairs and stools, wooden cups, baskets, crates, barrels and bins, plus a full apiary set with beehives, honey jars, a carafe, a scale and a tap bucket. 22 props, each with its own PBR texture set, shipped as FBX and GLB, with named sockets on the beehives for landing, entrance, lid and frame spawn.</p>
+            <div class="specs">
+              <span>22 props</span>
+              <span>22 texture sets</span>
+              <span>512 / 1K / 2K</span>
+              <span>URP ready</span>
+              <span>FBX + GLB</span>
+            </div>
+            <div class="meta">3D · Farm &amp; Village · URP · HDRP via converter · FBX + GLB</div>
           </div>
         </a>
 
@@ -465,7 +482,7 @@
         <div class="principle">
           <div class="num">03</div>
           <h3>Lean by default</h3>
-          <p>Sensible polycounts and one texture set per prop, sized to the object: 1K for small items, 2K for hero pieces.</p>
+          <p>Sensible polycounts and one texture set per prop, sized to the object: 512 for small items, 1K for most props, 2K for the two large tables.</p>
         </div>
         <div class="principle">
           <div class="num">04</div>
@@ -523,11 +540,15 @@
         <div class="faq">
           <details open>
             <summary>Which Unity versions are supported?</summary>
-            <p>Packs are built and tested in Unity 6. Supported versions are listed on each store page.</p>
+            <p>Packs are built and tested in Unity 6 (6000.x). The source assets target Unity 2022.3 LTS and newer; the exact tested version is listed on each store page.</p>
           </details>
           <details>
             <summary>Which render pipelines are supported?</summary>
-            <p>URP and HDRP. Textures include a Mask Map for HDRP and a Metallic-Smoothness map for URP. The Built-in render pipeline is not supported.</p>
+            <p>URP works out of the box and is what the shipped materials use. For HDRP, run the materials through the Render Pipeline Converter and use the included Mask Map. For the Built-in pipeline, switch the materials to the Standard shader and relink the Metallic-Smoothness, Normal and Occlusion maps. Both routes are documented in the user guide; for HDRP the FBX models are the safer path.</p>
+          </details>
+          <details>
+            <summary>Do the GLB models need anything extra?</summary>
+            <p>Yes. Unity has no built-in glTF importer, so the GLB models and the GLB prefabs need the free open-source <b>UnityGLTF</b> package from the Khronos Group. Install it once from <b>Window &gt; Package Manager &gt; + &gt; Add package from git URL</b> using <code>https://github.com/KhronosGroup/UnityGLTF.git</code> (Git must be installed), then reimport the glb folder. Offline install steps and the required build settings are in the user guide. If you would rather not add a third-party package, use the FBX prefabs — they need nothing extra.</p>
           </details>
           <details>
             <summary>Can I use the assets in a commercial game?</summary>
@@ -535,7 +556,7 @@
           </details>
           <details>
             <summary>What texture sizes and formats are included?</summary>
-            <p>Each prop has its own PBR texture set, 1024×1024 for most props and 2048×2048 for larger pieces. Models come as FBX and GLB.</p>
+            <p>Each prop has its own PBR texture set, sized to the object: 512×512 for the two wooden cups, 1024×1024 for most props and 2048×2048 for the two large tables — one set per prop, 22 sets in total. Maps are Base Color, Normal, Occlusion, Metallic-Smoothness, Mask Map (HDRP/URP) and ORM (glTF, Unreal, Blender). Models come as FBX and GLB.</p>
           </details>
           <details>
             <summary>What about refunds?</summary>
@@ -566,6 +587,7 @@
         <a href="#products">Catalog</a>
         <a href="#about">About</a>
         <a href="#support">Support</a>
+        <!-- TODO(store-url): same product URL as the header CTA -->
         <a href="https://assetstore.unity.com/" target="_blank" rel="noopener">Asset Store</a>
         <a href="https://github.com/amberwickconnect" target="_blank" rel="noopener">GitHub</a>
       </div>
